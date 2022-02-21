@@ -15,21 +15,36 @@ All non-sound assets, scripts, or Godot generated files are under the MIT Licens
 Sounds and Music are under CC0 / Public Domain
 
 Resource used from other sites:
+
 https://gamesounds.xyz/?dir=Kenney%27s%20Sound%20Pack/Digital%20Audio
+
 highUp.mp3
+
 zapThreeToneUp.mp3
+
 https://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bundle/Sounds%20Visual%20-%20Footsteps%20on%20Leaves
+
 FX3309 Falling Leaf onto ground 1.wav
 
+
 Anttis instrumentals - Feel the love
+
 Anttis instrumentals - Simple Simplyfied
+
 Anttis instrumentals - Rain!
 
+
+
 Anttis instrumentals - Wonderful Lie
+
 https://gamesounds.xyz/?dir=Anttis%20instrumentals/Songs
 
+
 Font:
+
 https://opengameart.org/content/minimalist-pixel-fonts
 
+
 Menu BG Texture:
+
 https://cc0textures.com/view?id=MetalPlates006
