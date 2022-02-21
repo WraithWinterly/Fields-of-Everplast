@@ -1,0 +1,616 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/coin_amount.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ui/notification.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ui/control.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/coin.png" type="Texture" id=5]
+[ext_resource path="res://assets/loading.png" type="Texture" id=7]
+[ext_resource path="res://scripts/ui/fade_player.gd" type="Script" id=8]
+[ext_resource path="res://scripts/ui/level_names.gd" type="Script" id=9]
+[ext_resource path="res://assets/ui/tsbutton.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/tsbutton_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/minimal_5x7.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/ui/button_pressed.tres" type="StyleBox" id=13]
+[ext_resource path="res://assets/ui/button_hover.tres" type="StyleBox" id=14]
+[ext_resource path="res://assets/ui/button_normal.tres" type="StyleBox" id=15]
+[ext_resource path="res://assets/ui/button_focus.tres" type="StyleBox" id=16]
+[ext_resource path="res://scenes/ui/menu.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=18]
+[ext_resource path="res://assets/ui/zapThreeToneUp.ogg" type="AudioStream" id=19]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/ui/minimal_5x7.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+font_data = SubResource( 1 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 10 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 11 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 10 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 11 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 11 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="Animation" id=14]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=15]
+size = 96
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 64
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=17]
+length = 13.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 12, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3, 8.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Thanks for playing!", "Due to all of this damages,
+your health has been reduced.
+We've tried our best to repair the damages
+you've had.", "You will now be able to
+select levels to play." ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/Label:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 3, 4, 8, 8.6, 9.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=18]
+size = 75
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.313726, 0.313726, 0.313726, 0.647059 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFontData" id=20]
+font_path = "res://assets/ui/minimal_5x7.ttf"
+
+[sub_resource type="DynamicFont" id=21]
+size = 63
+font_data = SubResource( 20 )
+
+[sub_resource type="Animation" id=22]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 3.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9, 0.9, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoadingSymbol:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://assets/ui/minimal_5x7.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 75
+font_data = SubResource( 4 )
+
+[sub_resource type="Environment" id=23]
+background_mode = 4
+tonemap_mode = 3
+glow_intensity = 0.0
+glow_strength = 2.0
+glow_bloom = 0.01
+glow_blend_mode = 0
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+version_prefix = "release"
+version_numbers = [ 1, 1 ]
+world_names = [ "Foggy Overlands", "Drowsy Lands", "Snow Fall", "Moon Landings" ]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Health" parent="GUI" instance=ExtResource( 4 )]
+
+[node name="HUD" type="Control" parent="GUI"]
+anchor_top = 0.05
+anchor_right = 0.25
+anchor_bottom = 0.072
+rect_scale = Vector2( 4, 4 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/HUD"]
+anchor_right = 0.95
+anchor_bottom = 0.5
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/HUD/VBoxContainer"]
+margin_right = 304.0
+margin_bottom = 10.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinTexture" type="TextureRect" parent="GUI/HUD/VBoxContainer/HBoxContainer"]
+margin_left = 228.0
+margin_right = 234.0
+margin_bottom = 10.0
+texture = ExtResource( 5 )
+
+[node name="CoinAmount" type="Label" parent="GUI/HUD/VBoxContainer/HBoxContainer"]
+margin_left = 238.0
+margin_right = 244.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+script = ExtResource( 2 )
+
+[node name="Space" type="Label" parent="GUI/HUD/VBoxContainer/HBoxContainer"]
+margin_left = 248.0
+margin_right = 256.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "    "
+
+[node name="LevelNames" type="Label" parent="GUI/HUD/VBoxContainer/HBoxContainer"]
+margin_left = 260.0
+margin_right = 304.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "Loading..."
+script = ExtResource( 9 )
+
+[node name="TSButtons" type="Control" parent="GUI"]
+visible = false
+modulate = Color( 1, 1, 1, 0.490196 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/TSButtons"]
+anchor_left = 0.05
+anchor_top = 0.565
+anchor_right = 0.95
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="GUI/TSButtons/HBoxContainer"]
+margin_top = 149.0
+margin_right = 140.0
+margin_bottom = 163.0
+text = "                                   "
+
+[node name="Left" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer/Label2"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 6 )
+pressed = SubResource( 7 )
+passby_press = true
+action = "move_left"
+visibility_mode = 1
+
+[node name="Label" type="Label" parent="GUI/TSButtons/HBoxContainer"]
+margin_left = 144.0
+margin_top = 149.0
+margin_right = 284.0
+margin_bottom = 163.0
+text = "                                   "
+
+[node name="Down" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer/Label"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 8 )
+pressed = SubResource( 9 )
+passby_press = true
+action = "move_down"
+visibility_mode = 1
+
+[node name="Label4" type="Label" parent="GUI/TSButtons/HBoxContainer"]
+margin_left = 288.0
+margin_top = 149.0
+margin_right = 1152.0
+margin_bottom = 163.0
+size_flags_horizontal = 3
+text = "                                   "
+
+[node name="Right" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer/Label4"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 10 )
+pressed = SubResource( 11 )
+passby_press = true
+action = "move_right"
+visibility_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/TSButtons"]
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_left = 146.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/TSButtons/HBoxContainer2"]
+margin_top = 299.0
+margin_right = 718.0
+margin_bottom = 313.0
+size_flags_horizontal = 3
+text = "                                   "
+
+[node name="Up" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer2/Label"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 12 )
+pressed = SubResource( 13 )
+passby_press = true
+action = "move_up"
+visibility_mode = 1
+
+[node name="Label5" type="Label" parent="GUI/TSButtons/HBoxContainer2"]
+margin_left = 722.0
+margin_top = 299.0
+margin_right = 862.0
+margin_bottom = 313.0
+text = "                                   "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprint" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer2/Label5"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 10 )
+pressed = SubResource( 11 )
+passby_press = true
+action = "move_sprint"
+visibility_mode = 1
+
+[node name="Label6" type="Label" parent="GUI/TSButtons/HBoxContainer2"]
+margin_left = 866.0
+margin_top = 299.0
+margin_right = 1006.0
+margin_bottom = 313.0
+text = "                                   "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump" type="TouchScreenButton" parent="GUI/TSButtons/HBoxContainer2/Label6"]
+modulate = Color( 1, 1, 1, 0.607843 )
+scale = Vector2( 15, 15 )
+normal = SubResource( 12 )
+pressed = SubResource( 13 )
+passby_press = true
+action = "move_jump"
+visibility_mode = 1
+
+[node name="PauseMenu" type="Control" parent="GUI"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/PauseMenu"]
+anims/pause = SubResource( 14 )
+
+[node name="ColorRect" type="ColorRect" parent="GUI/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.607843 )
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 0.3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/PauseMenu/CenterContainer"]
+margin_left = 532.0
+margin_top = 78.0
+margin_right = 748.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 15 )
+text = "Paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/PauseMenu"]
+anchor_top = 0.45
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_bottom = 40.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="GUI/PauseMenu/HBoxContainer"]
+margin_left = 107.0
+margin_right = 483.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = ExtResource( 16 )
+custom_styles/normal = ExtResource( 15 )
+text = "    Continue Game     "
+
+[node name="Return" type="Button" parent="GUI/PauseMenu/HBoxContainer"]
+margin_left = 821.0
+margin_right = 1173.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = ExtResource( 16 )
+custom_styles/normal = ExtResource( 15 )
+text = "  Return to Menu  "
+
+[node name="Menu" parent="GUI" instance=ExtResource( 17 )]
+
+[node name="End" type="ColorRect" parent="GUI"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/End"]
+anims/default = SubResource( 17 )
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI/End"]
+anchor_right = 1.0
+anchor_bottom = 0.7
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/End/CenterContainer"]
+margin_left = 425.0
+margin_top = 228.0
+margin_right = 854.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 18 )
+text = "Thanks for playing!"
+align = 1
+percent_visible = 0.0
+
+[node name="Notification" type="Panel" parent="GUI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 19 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/Notification"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 21 )
+text = "Game Saved!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/Notification"]
+anims/notification = SubResource( 22 )
+
+[node name="FadePlayer" type="Control" parent="GUI"]
+pause_mode = 2
+mouse_filter = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GUI/FadePlayer"]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="GUI/FadePlayer/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/FadePlayer/CanvasLayer/FadeRect"]
+anims/fade = SubResource( 3 )
+
+[node name="LoadingSymbol" type="TextureRect" parent="GUI/FadePlayer/CanvasLayer/FadeRect"]
+anchor_left = 0.75
+anchor_top = 0.85
+anchor_right = 0.856
+anchor_bottom = 0.95
+margin_left = -1.0
+margin_top = 6.10352e-05
+margin_right = -246.44
+margin_bottom = -57.3599
+rect_scale = Vector2( 5, 5 )
+rect_pivot_offset = Vector2( 4, 4 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUI/FadePlayer/CanvasLayer/FadeRect"]
+anchor_left = 0.75
+anchor_top = 0.832
+anchor_right = 0.75
+anchor_bottom = 0.832
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "     Loading..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GUI"]
+pause_mode = 2
+stream = ExtResource( 19 )
+volume_db = 15.0
+pitch_scale = 1.3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}

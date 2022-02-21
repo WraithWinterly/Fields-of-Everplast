@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/ui/progress_bar.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/heart.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.588235, 0.117647, 0.117647, 0.490196 )
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color( 0.2, 0.227451, 0.309804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.2, 0.227451, 0.309804, 1 )
+
+[node name="Health" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.13
+anchor_bottom = 0.114
+margin_left = -0.319977
+margin_top = -3.76
+margin_right = 510.995
+margin_bottom = 27.6291
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBar"]
+anchor_top = -0.342
+rect_scale = Vector2( 12, 12 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/enemy_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/world2/scorpion.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="Scorpion" type="Node2D"]
+
+[node name="EnemyBase" parent="." instance=ExtResource( 1 )]
+speed = 10
+knockback = 20
+damage = 25
+spiked_enemy = true
+
+[node name="CollisionShape2D" parent="EnemyBase" index="2"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="EnemyBase/HitArea" index="0"]
+visible = true
+position = Vector2( 4, 4 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" parent="EnemyBase/SpriteHolder" index="0"]
+frames = SubResource( 7 )
+frame = 2
+playing = true
+
+[editable path="EnemyBase"]

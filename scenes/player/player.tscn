@@ -1,0 +1,314 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://assets/player/character.png" type="Texture" id=1]
+[ext_resource path="res://scripts/player/player.gd" type="Script" id=2]
+[ext_resource path="res://scripts/player/camera.gd" type="Script" id=3]
+[ext_resource path="res://scripts/player/animated_sprite.gd" type="Script" id=4]
+[ext_resource path="res://scripts/player/fsm.gd" type="Script" id=5]
+[ext_resource path="res://scripts/player/idle.gd" type="Script" id=6]
+[ext_resource path="res://scripts/player/water_move.gd" type="Script" id=7]
+[ext_resource path="res://scripts/player/ladder.gd" type="Script" id=8]
+[ext_resource path="res://scripts/player/move.gd" type="Script" id=9]
+[ext_resource path="res://scripts/player/water_idle.gd" type="Script" id=10]
+[ext_resource path="res://assets/player/hit_hurt.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/player/jump10.wav" type="AudioStream" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pan_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 35 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "pan_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -35 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 11, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 33, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 55, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 66, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 77, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 44, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 55, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 66, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 77, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 22, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 88, 0, 11, 24 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 99, 0, 11, 24 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "air_walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "sprint",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "walk",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "air_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "ladder",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=19]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0 ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 3.9, 10 )
+
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
+z_index = 4
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Idle" type="Node" parent="FSM"]
+script = ExtResource( 6 )
+
+[node name="Move" type="Node" parent="FSM"]
+script = ExtResource( 9 )
+
+[node name="WaterIdle" type="Node" parent="FSM"]
+script = ExtResource( 10 )
+
+[node name="WaterMove" type="Node" parent="FSM"]
+script = ExtResource( 7 )
+
+[node name="Ladder" type="Node" parent="FSM"]
+script = ExtResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -1, 0 )
+offset = Vector2( 0, 13.16 )
+current = true
+zoom = Vector2( 0.2, 0.2 )
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_top = 0.5
+drag_margin_bottom = 0.1
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+anims/pan_down = SubResource( 1 )
+anims/pan_up = SubResource( 2 )
+
+[node name="FinalEnemy" type="AnimationPlayer" parent="Camera2D"]
+anims/default = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 18 )
+animation = "idle"
+playing = true
+centered = false
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
+anims/death = SubResource( 19 )
+anims/flash = SubResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.5, 13 )
+shape = SubResource( 21 )
+
+[node name="Checks" type="Node2D" parent="."]
+
+[node name="Down" type="RayCast2D" parent="Checks"]
+position = Vector2( 5, 25.556 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 6 )
+collision_mask = 4
+collide_with_areas = true
+
+[node name="Up" type="RayCast2D" parent="Checks"]
+position = Vector2( 1, 23 )
+enabled = true
+cast_to = Vector2( 8, 0 )
+collision_mask = 8
+
+[node name="WallRight" type="RayCast2D" parent="Checks"]
+position = Vector2( 6, 12 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+collision_mask = 4
+
+[node name="WallLeft" type="RayCast2D" parent="Checks"]
+position = Vector2( 4, 12 )
+enabled = true
+cast_to = Vector2( -5, 0 )
+collision_mask = 4
+
+[node name="InvincibleTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="Buffer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.05
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 5.5, 13 )
+shape = SubResource( 22 )
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -25.0
+
+[connection signal="timeout" from="InvincibleTimer" to="." method="_on_InvincibleTimer_timeout"]
+[connection signal="timeout" from="Buffer" to="FSM/Move" method="_on_Buffer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

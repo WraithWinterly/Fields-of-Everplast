@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/world1/bunny.png" type="Texture" id=1]
+[ext_resource path="res://scenes/enemy_base.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Bunny" type="Node2D"]
+
+[node name="Bunny" parent="." instance=ExtResource( 2 )]
+friendly = true
+
+[node name="CollisionShape2D" parent="Bunny" index="2"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Bunny/HitArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" parent="Bunny/SpriteHolder" index="0"]
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[editable path="Bunny"]
