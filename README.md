@@ -1,7 +1,9 @@
 # Welcome to Fields of Elysium!
 
 This is my first platforming and complete game made with Godot Engine. This is the game Everplast was build off of.
-If you don't have Everplast, you can get it here: https://store.steampowered.com/app/1896630/Everplast/
+If you don't have Everplast, you can get it here:
+
+https://store.steampowered.com/app/1896630/Everplast/
 
 Images and art are not open source. You may not use them in other projects without buying them first.
 
