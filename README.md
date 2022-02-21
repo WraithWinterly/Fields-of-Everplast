@@ -1,44 +1,16 @@
 # Welcome to Fields of Elysium!
 
-This is a short game, and my first completed game, completed using Godot Engine.
+This is my first platforming and complete game made with Godot Engine. This is the game Everplast was build off of.
+If you don't have Everplast, you can get it here: https://store.steampowered.com/app/1896630/Everplast/
 
-It is mostly a simple platforming game, and will take around 20 to 40 minutes to complete. Once you complete, you get access to the Level Picker and your health is slightly reduced. 
+Images and art are not open source. You may not use them in other projects without buying them first.
 
+All non-sound assets, scripts, or Godot generated files are under the MIT License
 
-All non-sound assets, scripts, etc are under the MIT License
-
-Copyright 2020 Aspring15
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Godot Engine: MIT License
-Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.
-Copyright (c) 2014-2020 Godot Engine contributors.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
--- Godot Engine <https://godotengine.org>
-
+![Title Screen](https://user-images.githubusercontent.com/37941646/155028183-2bdeea73-d89a-470b-8758-82873e82e317.png)
+![World 1](https://user-images.githubusercontent.com/37941646/155028504-b98492c1-aa54-4997-a267-71de1914434e.png)
+![World 2](https://user-images.githubusercontent.com/37941646/155028383-5d0f164f-4dfb-45ef-aee3-cb3b15cdcaf8.png)
+![World 3](https://user-images.githubusercontent.com/37941646/155028291-45e072ba-61fb-4888-8cca-7596a37c74c1.png)
 
 Sounds and Music are under CC0 / Public Domain
 
@@ -51,7 +23,8 @@ FX3309 Falling Leaf onto ground 1.wav
 
 Anttis instrumentals - Feel the love
 Anttis instrumentals - Simple Simplyfied
-Anttis instrumentals - Rain
+Anttis instrumentals - Rain!
+
 Anttis instrumentals - Wonderful Lie
 https://gamesounds.xyz/?dir=Anttis%20instrumentals/Songs
 
