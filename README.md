@@ -5,7 +5,7 @@ If you don't have Everplast, you can get it here:
 
 https://store.steampowered.com/app/1896630/Everplast/
 
-Images and art are not open source. You may not use them in other projects without buying them first.
+Images and art are open source.
 
 All non-sound assets, scripts, or Godot generated files are under the MIT License
 
@@ -28,14 +28,11 @@ https://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bu
 
 FX3309 Falling Leaf onto ground 1.wav
 
-
 Anttis instrumentals - Feel the love
 
 Anttis instrumentals - Simple Simplyfied
 
 Anttis instrumentals - Rain!
-
-
 
 Anttis instrumentals - Wonderful Lie
 
